@@ -4,7 +4,10 @@ import os, sys
 
 if len(sys.argv) == 4 and sys.argv[1] == "--list":
     outPath = sys.argv[2]
-    numFiles = int(sys.argv[3])
+    fileWithNumber = sys.argv[3]
+
+    with open(fileWithNumber) as f:
+        numFiles = int(f.read().strip())
 
     print(os.path.join(outPath, "server.h"))
 
@@ -15,7 +18,10 @@ if len(sys.argv) == 4 and sys.argv[1] == "--list":
 
 if len(sys.argv) == 3:
     outPath = sys.argv[1]
-    numFiles = int(sys.argv[2])
+    fileWithNumber = sys.argv[2]
+
+    with open(fileWithNumber) as f:
+        numFiles = int(f.read().strip())
 
     if not os.path.exists(outPath):
         os.makedirs(outPath)
